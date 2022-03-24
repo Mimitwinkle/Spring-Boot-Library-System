@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Library System</title>
+</head>
+<body>
+
+<form th:action="@{/authors}" th:object="${author}" method="POST">
+	<h2>Create New Author</h2>
+	<label for="firstName">First name:</label><br>
+	<input type="text" id="firstName" name="firstName" th:field="*{firstName}" value="John"><br>
+	<label for="lastNname">Last name:</label><br>
+	<input type="text" id="lastName" name="lastNname" th:field="*{lastName}" value="Doe"><br><br>
+	<input type="submit" value="Submit">
+</form>
+
+<ul>
+  <li><a th:href="@{/authors}">Authors Directory</a></li>
+  <li><a href="/">Home</a></li>
+</ul>
+
+</body>
+</html>

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Library System</title>
 </head>
 <body>
+
+<h1>Authors Directory</h1>
 
 <table>
   <tr>
@@ -19,6 +21,11 @@
     <td th:text="${author.lastName}"></td>
   </tr>
 </table>
+
+<ul>
+  <li><a th:href="@{/authors/new}">Create New Author</a></li>
+  <li><a href="/">Home</a></li>
+</ul>
 
 </body>
 </html>
