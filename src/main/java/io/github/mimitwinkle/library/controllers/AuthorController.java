@@ -40,7 +40,6 @@ public class AuthorController {
 		
 		Author author = new Author();
 		model.addAttribute("author", author);
-		//authorService.addAuthor(null);
 		
 		return "authors/new";
 	}

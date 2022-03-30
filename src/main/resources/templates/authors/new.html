@@ -3,22 +3,41 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Library System</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 
+<div class="container">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Library System</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="/">Home</a>
+      <a class="nav-item nav-link" href="/books">Books</a>
+      <a class="nav-item nav-link active" href="/authors">Authors <span class="sr-only">(current)</span></a>
+    </div>
+  </div>
+</nav>
+
 <form th:action="@{/authors}" th:object="${author}" method="POST">
 	<h2>Create New Author</h2>
-	<label for="firstName">First name:</label><br>
-	<input type="text" id="firstName" name="firstName" th:field="*{firstName}" value="John"><br>
-	<label for="lastNname">Last name:</label><br>
-	<input type="text" id="lastName" name="lastNname" th:field="*{lastName}" value="Doe"><br><br>
-	<input type="submit" value="Submit">
+	<div class="form-row">
+	
+	<div class="form-group col-md-6">
+		<label for="firstName">First Name:</label><br>
+		<input type="text" id="firstName" name="firstName" th:field="*{firstName}" class="form-control"><br>
+		<label for="lastNname">Last Name:</label><br>
+		<input type="text" id="lastName" name="lastNname" th:field="*{lastName}" class="form-control"><br><br>
+		<button type="submit" class="btn btn-primary mb-2">Submit</button>
+	</div>
+	
+	</div>
 </form>
 
-<ul>
-  <li><a th:href="@{/authors}">Authors Directory</a></li>
-  <li><a href="/">Home</a></li>
-</ul>
 
 </body>
 </html>

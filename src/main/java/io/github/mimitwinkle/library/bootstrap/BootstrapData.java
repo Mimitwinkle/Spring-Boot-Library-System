@@ -28,6 +28,7 @@ public class BootstrapData implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		
 		// publisher instantiation
 		Publisher penguinRandomHouse = new Publisher();
 		penguinRandomHouse.setName("Penguin Random House");
@@ -49,7 +50,6 @@ public class BootstrapData implements CommandLineRunner {
 		
 		authorRepository.save(agathaChristie);
 		bookRepository.save(attwn);
-		publisherRepository.save(penguinRandomHouse);
 		
 		Author janeAusten = new Author("Jane", "Austen");
 		Book sas = new Book("Sense and Sensibility", "321321");
@@ -61,12 +61,27 @@ public class BootstrapData implements CommandLineRunner {
 		
 		authorRepository.save(janeAusten);
 		bookRepository.save(sas);
-		publisherRepository.save(penguinRandomHouse);
+		
+
+		// for testing multiple authors
+		Book ga = new Book("Good Omens", "456456");
+		
+		Author neilGaiman = new Author("Neil", "Gaiman");
+		neilGaiman.getBooks().add(ga);
+		ga.getAuthors().add(neilGaiman);
+		authorRepository.save(neilGaiman);
+		
+		Author terryPratchet = new Author("Terry", "Pratchet");
+		terryPratchet.getBooks().add(ga);
+		ga.getAuthors().add(terryPratchet);
+		authorRepository.save(terryPratchet);
+		
+		bookRepository.save(ga);
+		
 		
 		System.out.println("Number of Books: " + bookRepository.count());
 		System.out.println("Publishers: " + penguinRandomHouse);
 		System.out.println(penguinRandomHouse.getName() + " number of books: " + penguinRandomHouse.getBooks().size());
-		
 		
 	}
 	
